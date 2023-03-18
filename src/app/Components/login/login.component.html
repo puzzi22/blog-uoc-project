@@ -1,0 +1,37 @@
+<div style="margin-left: auto; margin-right: auto">
+  <p id="loginFeedback"></p>
+</div>
+<div>
+  <h1>Login</h1>
+
+  <!-- TODO 21 -->
+  <form [formGroup]="loginForm" (ngSubmit)="login(); formSubmitted = true">
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" [formControl]="email" />
+      <div *ngIf="formSubmitted && email.errors" [ngClass]="'error'">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.pattern">Email not a valid format.</div>
+        <span *ngIf="email.errors.invalidKeyWord"
+          >Email info@uoc.edu is reservated for the system admin.</span
+        >
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" [formControl]="password" />
+      <div *ngIf="formSubmitted && password.errors" [ngClass]="'error'">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">
+          Password must be at least 8 characters long.
+        </div>
+        <div *ngIf="password.errors.maxlength">
+          Password must be at most 16 characters long.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit">Join now</button>
+  </form>
+</div>
