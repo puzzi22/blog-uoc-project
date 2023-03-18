@@ -1,9 +1,9 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
-  UntypedFormBuilder,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
   isValidForm: boolean | null;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private userService: UserService,
     private sharedService: SharedService,
     private headerMenusService: HeaderMenusService,
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
     // TODO 17
     this.registerUser = new UserDTO('', '', '', '', new Date(), '', '');
 
-    this.isValidForm = null;
+    this.isValidForm = false; // Null
 
     this.name = new FormControl(this.registerUser.name, [
       Validators.required,

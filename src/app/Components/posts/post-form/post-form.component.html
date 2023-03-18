@@ -58,39 +58,31 @@
     </div>
 
     <!-- <div>
-      <label for="categories">Choose categories:</label>
-      <select class="form-control" [(ngModel)]="categories" multiple>
-        <option *ngFor="let category of categories" [ngValue]="category">{{category.title}}</option>
-      </select>
-    </div> -->
-
-    <!-- <select name="categories" id="categories" multiple>
-        <option *ngFor="let category of categories" [value]="category.title">
+      <label>Category</label>
+      <select
+        [(ngModel)]="postForm.value.selectedCategories"
+        formControlName="selectedCategories"
+        multiple
+      >
+        <option
+          *ngFor="let category of allCategories"
+          [value]="category.categoryId"
+        >
           {{ category.title }}
         </option>
-      </select> -->
-
-    <!-- <div class="form-group">
-      <label>Categories:</label>
-      <div class="form-check" *ngFor="let category of categories">
-        <select
-          [formControlName]="'category_' + category?.categoryId"
-          class="form-check-input"
-        ></select>
-        <option class="form-check-label">{{ category?.title }}</option>
-      </div>
+      </select>
     </div> -->
-    <label for="categories">Categories:</label>
-    <select
-      id="categories"
-      name="categories"
-      multiple
-      (change)="onCategoryChange($event)"
-    >
-      <option *ngFor="let category of categories" [value]="category.categoryId">
-        {{ category.title }}
-      </option>
-    </select>
+    <div>
+      <label>Category</label>
+      <select formControlName="selectedCategories" multiple>
+        <option
+          *ngFor="let category of allCategories"
+          [value]="category.categoryId"
+        >
+          {{ category.title }}
+        </option>
+      </select>
+    </div>
 
     <button type="submit">SAVE</button>
   </form>

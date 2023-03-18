@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
+  FormBuilder,
+  FormControl,
+  FormGroup,
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,11 +18,11 @@ import { SharedService } from 'src/app/Services/shared.service';
 })
 export class CategoryFormComponent implements OnInit {
   category: CategoryDTO;
-  title: UntypedFormControl;
-  description: UntypedFormControl;
-  css_color: UntypedFormControl;
+  title: FormControl;
+  description: FormControl;
+  css_color: FormControl;
 
-  categoryForm: UntypedFormGroup;
+  categoryForm: FormGroup;
   isValidForm: boolean | null;
 
   private isUpdateMode: boolean;
@@ -32,7 +32,7 @@ export class CategoryFormComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private categoryService: CategoryService,
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private router: Router,
     private sharedService: SharedService,
     private localStorageService: LocalStorageService
@@ -43,17 +43,17 @@ export class CategoryFormComponent implements OnInit {
     this.isUpdateMode = false;
     this.validRequest = false;
 
-    this.title = new UntypedFormControl(this.category.title, [
+    this.title = new FormControl(this.category.title, [
       Validators.required,
       Validators.maxLength(55),
     ]);
 
-    this.description = new UntypedFormControl(this.category.description, [
+    this.description = new FormControl(this.category.description, [
       Validators.required,
       Validators.maxLength(255),
     ]);
 
-    this.css_color = new UntypedFormControl(this.category.css_color, [
+    this.css_color = new FormControl(this.category.css_color, [
       Validators.required,
       Validators.maxLength(7),
     ]);

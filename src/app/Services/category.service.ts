@@ -50,9 +50,4 @@ export class CategoryService {
       .delete<deleteResponse>(this.urlBlogUocApi + '/' + categoryId)
       .toPromise();
   }
-
-  // new method to get all categories
-  //   getAllCategories(): Promise<CategoryDTO[]> {
-  //     return this.http.get<CategoryDTO[]>(this.urlBlogUocApi).toPromise();
-  //   }
 }

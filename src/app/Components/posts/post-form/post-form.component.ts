@@ -1,9 +1,9 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
+  FormBuilder,
+  FormControl,
+  FormGroup,
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -22,17 +22,14 @@ import { SharedService } from 'src/app/Services/shared.service';
 })
 export class PostFormComponent implements OnInit {
   post: PostDTO;
-  title: UntypedFormControl;
-  description: UntypedFormControl;
-  publication_date: UntypedFormControl;
-  // categories: UntypedFormControl;
-  categories: string[] = [];
+  title: FormControl;
+  description: FormControl;
+  publication_date: FormControl;
+  allCategories!: CategoryDTO[];
 
-  selectedCategories: CategoryDTO[] = [];
+  selectedCategories = new FormControl([]);
 
-  // categories: CategoryDTO[];
-
-  postForm: UntypedFormGroup;
+  postForm: FormGroup;
   isValidForm: boolean | null;
 
   private isUpdateMode: boolean;
@@ -42,7 +39,7 @@ export class PostFormComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService,
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private router: Router,
     private sharedService: SharedService,
     private localStorageService: LocalStorageService,
@@ -53,30 +50,27 @@ export class PostFormComponent implements OnInit {
     this.post = new PostDTO('', '', 0, 0, new Date());
     this.isUpdateMode = !!this.postId;
     this.validRequest = false;
-    this.selectedCategories = [];
 
-    this.categories = [];
+    this.allCategories = [];
+    this.loadCategories();
 
-    this.title = new UntypedFormControl('', [
+    this.title = new FormControl('', [
       Validators.required,
       Validators.maxLength(55),
     ]);
 
-    this.description = new UntypedFormControl('', [
+    this.description = new FormControl('', [
       Validators.required,
       Validators.maxLength(255),
     ]);
 
-    this.publication_date = new UntypedFormControl('', [Validators.required]);
-
-    // this.categories = new UntypedFormControl('', [Validators.required]);
+    this.publication_date = new FormControl('', [Validators.required]);
 
     this.postForm = this.formBuilder.group({
       title: this.title,
       description: this.description,
       publication_date: this.publication_date,
-      // categories: this.categories,
-      categoryFormArray: this.formBuilder.array([]),
+      selectedCategories: this.selectedCategories,
     });
 
     if (this.isUpdateMode) {
@@ -95,82 +89,22 @@ export class PostFormComponent implements OnInit {
   }
   // TODO 13
 
-  loadCategories(): void {
-    const user_id = localStorage.getItem('user_id');
-    if (user_id) {
-      this.categoryService
-        .getCategoriesByUserId(user_id)
-        .then((categories: CategoryDTO[]) => {
-          // Extract the category ids from the categories array
-          const ids: string[] = categories.map(
-            (category: CategoryDTO) => category.categoryId
-          );
-          this.categories = ids;
-          const post = new PostDTO('', '', 0, 0, new Date());
-          post.categories = this.categories;
-          // Use the new post object to create or update a post
-        })
-        .catch((error) => {
-          console.log(error); // Handle the error as required
-        });
-    }
-  }
-  // async loadCategories() {
-  //   const userId = this.activatedRoute.snapshot.paramMap.get('userId');
-  //   if (userId) {
-  //     try {
-  //       const categories = await this.categoryService.getCategoriesByUserId(
-  //         userId
-  //       );
-  //       console.log(categories);
-  //       this.categories = categories;
-  //     } catch (error: any) {
-  //       this.sharedService.errorLog(error);
-  //     }
-  //   }
-  // }
+  ngOnInit(): void {}
 
-  // async loadCategories() {
-  //   const userId = this.localStorageService.get('user_id');
-  //   if (userId) {
-  //     try {
-  //       const categories = await this.categoryService.getCategoriesByUserId(
-  //         userId
-  //       );
-  //       for (const category of this.categories) {
-  //         this.categoryFormArray.controls[category.categoryId].patchValue(
-  //           category
-  //         );
-  //       }
-  //     } catch (error: any) {
-  //       this.sharedService.errorLog(error);
-  //     }
-  //   }
-  // }
-
-  onCategoryChange(event: any) {
-    const selectedCategories = [];
-    const options = event.target.options;
-
-    for (let i = 0; i < options.length; i++) {
-      if (options[i].selected) {
-        selectedCategories.push(options[i].value);
+  private async loadCategories(): Promise<void> {
+    let errorResponse: any;
+    const userId = this.localStorageService.get('user_id');
+    if (userId) {
+      try {
+        this.allCategories = await this.categoryService.getCategoriesByUserId(
+          userId
+        );
+      } catch (error: any) {
+        errorResponse = error.error;
+        this.sharedService.errorLog(errorResponse);
       }
     }
-
-    this.post.categories = selectedCategories;
   }
-
-  ngOnInit(): void {
-    this.loadCategories();
-    // this.getCategoriesByUserId(userId);
-  }
-
-  // getCategoriesByUserId(userId: string): Promise<CategoryDTO[]> {
-  //   return this.http
-  //     .get<CategoryDTO[]>('http://localhost:3000/users/categories/' + userId)
-  //     .toPromise();
-  // }
 
   private async editPost(): Promise<boolean> {
     let errorResponse: any;
@@ -180,11 +114,13 @@ export class PostFormComponent implements OnInit {
       const userId = this.localStorageService.get('user_id');
       if (userId) {
         this.post.userId = userId;
-        if (this.selectedCategories.length > 0) {
-          this.post.categories = this.selectedCategories
-            .map((category) => category.categoryId)
-            .map((categoryId) => ({ categoryId } as CategoryDTO)); // Convert to CategoryDTO array
+        if (
+          this.selectedCategories.value != null &&
+          this.selectedCategories.value.length > 0
+        ) {
+          this.post.categories = this.selectedCategories.value;
         }
+
         try {
           await this.postService.updatePost(this.postId, this.post);
           responseOK = true;
@@ -214,11 +150,14 @@ export class PostFormComponent implements OnInit {
     const userId = this.localStorageService.get('user_id');
     if (userId) {
       this.post.userId = userId;
-      if (this.selectedCategories.length > 0) {
-        this.post.categories = this.selectedCategories
-          .map((category) => category.categoryId)
-          .map((categoryId) => ({ categoryId } as CategoryDTO)); // Convert to CategoryDTO array
+
+      if (
+        this.selectedCategories.value != null &&
+        this.selectedCategories.value.length > 0
+      ) {
+        this.post.categories = this.selectedCategories.value;
       }
+
       try {
         await this.postService.createPost(this.post);
         responseOK = true;

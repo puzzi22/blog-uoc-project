@@ -24,7 +24,7 @@ export class UserService {
       .toPromise();
   }
 
-  getUSerById(userId: string): Promise<UserDTO> {
+  getUserById(userId: string): Promise<UserDTO> {
     return this.http
       .get<UserDTO>(this.urlBlogUocApi + '/' + userId)
       .toPromise();

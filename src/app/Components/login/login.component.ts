@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
-  UntypedFormBuilder,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private authService: AuthService,
     private sharedService: SharedService,
     private headerMenusService: HeaderMenusService,
