@@ -6,35 +6,15 @@
   <input type="text" id="alias-filter" [(ngModel)]="userAlias" />
 </div>
 
-<ul
-  *ngFor="let post of posts | postFilter : userAlias"
-  style="
-    border: 3px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px 0;
-    text-align: center;
-    max-width: 500px;
-  "
->
+<ul *ngFor="let post of posts | postFilter : userAlias">
   <li
     *ngFor="let category of post.categories"
     [ngStyle]="{ 'background-color': category.css_color }"
-    style="
-      width: 80px;
-      height: 20px;
-      display: inline-block;
-      text-align: center;
-      margin-right: 20px;
-    "
   >
     {{ category.title }}
   </li>
 
-  <p style="font-weight: bold">
-    {{ "post.title" | translate }} {{ post.title }}
-  </p>
+  <p class="title">{{ "post.title" | translate }} {{ post.title }}</p>
   <p>{{ "post.likes" | translate }} {{ post.num_likes }}</p>
   <p>{{ "post.dislikes" | translate }} {{ post.num_dislikes }}</p>
   <p>

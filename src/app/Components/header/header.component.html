@@ -1,12 +1,5 @@
 <!-- LANGUAGE DROPDOWN -->
-<div
-  style="
-    display: flex;
-    justify-content: space-between;
-    max-width: 500px;
-    align-items: center;
-  "
->
+<div class="div-drop">
   <p>{{ "header.headerWorks" | translate }}</p>
   <div class="language-dropdown">
     <a
@@ -23,10 +16,7 @@
 </div>
 
 <!-- NO AUTH REQUIRED -->
-<div
-  *ngIf="showNoAuthSection"
-  style="display: flex; justify-content: space-between; max-width: 500px"
->
+<div class="auth-required" *ngIf="showNoAuthSection">
   <div>
     <button (click)="home()">{{ "header.home" | translate }}</button>
     <button (click)="login()">{{ "header.login" | translate }}</button>
@@ -49,20 +39,3 @@
   <button (click)="profile()">{{ "header.profile" | translate }}</button>
   <button (click)="logout()">{{ "header.logout" | translate }}</button>
 </div>
-
-<style>
-  .language-dropdown a,
-  .dashboard {
-    display: inline-block;
-    margin-right: 10px;
-    text-decoration: none;
-    cursor: pointer;
-
-    font-weight: bold;
-    color: blue;
-  }
-
-  .language-dropdown a.active {
-    color: #333;
-  }
-</style>

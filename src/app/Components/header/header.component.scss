@@ -1,0 +1,29 @@
+.div-drop {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  align-items: center;
+}
+.language-dropdown a,
+.dashboard {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: blue;
+}
+.language-dropdown a:hover,
+.dashboard:hover {
+  text-decoration: underline;
+}
+.language-dropdown a.active {
+  color: #333;
+  text-decoration: none !important;
+  cursor: default;
+}
+.auth-required {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+}
