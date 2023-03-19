@@ -1,10 +1,18 @@
 <p>header works!</p>
 
 <!-- NO AUTH REQUIRED -->
-<div *ngIf="showNoAuthSection">
-  <button (click)="home()">Home</button>
-  <button (click)="login()">Login</button>
-  <button (click)="register()">Register</button>
+<div
+  *ngIf="showNoAuthSection"
+  style="display: flex; justify-content: space-between; max-width: 500px"
+>
+  <div>
+    <button (click)="home()">Home</button>
+    <button (click)="login()">Login</button>
+    <button (click)="register()">Register</button>
+  </div>
+  <div>
+    <a routerLink="/dashboard">Dashboard</a>
+  </div>
 </div>
 
 <!-- AUTH REQUIRED -->
