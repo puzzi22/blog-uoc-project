@@ -4,7 +4,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { checkInvalidKeyWord } from 'src/app/Directives/check-invalid-keyword.validator';
 import { UserDTO } from 'src/app/Models/user.dto';
@@ -49,74 +49,56 @@ export class ProfileComponent implements OnInit {
 
     this.isValidForm = null;
 
-  //   this.name = new FormControl(this.profileUser.name, [
-  //     Validators.required,
-  //     Validators.minLength(5),
-  //     Validators.maxLength(25),
-  //   ]);
+    this.name = new FormControl(this.profileUser.name, [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(25),
+    ]);
 
-  //   this.surname_1 = new FormControl(this.profileUser.surname_1, [
-  //     Validators.required,
-  //     Validators.minLength(5),
-  //     Validators.maxLength(25),
-  //   ]);
+    this.surname_1 = new FormControl(this.profileUser.surname_1, [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(25),
+    ]);
 
-  //   this.surname_2 = new FormControl(this.profileUser.surname_2, [
-  //     Validators.minLength(5),
-  //     Validators.maxLength(25),
-  //   ]);
+    this.surname_2 = new FormControl(this.profileUser.surname_2, [
+      Validators.minLength(5),
+      Validators.maxLength(25),
+    ]);
 
-  //   this.alias = new FormControl(this.profileUser.alias, [
-  //     Validators.required,
-  //     Validators.minLength(5),
-  //     Validators.maxLength(25),
-  //   ]);
+    this.alias = new FormControl(this.profileUser.alias, [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(25),
+    ]);
 
-  //   this.birth_date = new FormControl(
-  //     formatDate(this.profileUser.birth_date, 'yyyy-MM-dd', 'en'),
-  //     [Validators.required]
-  //   );
+    this.birth_date = new FormControl(
+      formatDate(this.profileUser.birth_date, 'yyyy-MM-dd', 'en'),
+      [Validators.required]
+    );
 
-  //   this.email = new FormControl(this.profileUser.email, [
-  //     Validators.required,
-  //     Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
-  //     checkInvalidKeyWord(/info@uoc.edu/),
-  //   ]);
+    this.email = new FormControl(this.profileUser.email, [
+      Validators.required,
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+      checkInvalidKeyWord(/info@uoc.edu/),
+    ]);
 
-  //   this.password = new FormControl(this.profileUser.password, [
-  //     Validators.required,
-  //     Validators.minLength(8),
-  //     Validators.maxLength(16),
-  //   ]);
+    this.password = new FormControl(this.profileUser.password, [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(16),
+    ]);
 
-  //   this.profileForm = this.formBuilder.group({
-  //     name: this.name,
-  //     surname_1: this.surname_1,
-  //     surname_2: this.surname_2,
-  //     alias: this.alias,
-  //     birth_date: this.birth_date,
-  //     email: this.email,
-  //     password: this.password,
-  //   });
-  // }
-
-  name = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-surname_1 = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-surname_2 = new FormControl('', [Validators.minLength(5), Validators.maxLength(25)]);
-alias = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-birth_date = new FormControl('', [Validators.required]);
-email = new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'), checkInvalidKeyWord(/info@uoc.edu/)]);
-password = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]);
-
-profileForm = this.formBuilder.group({
-  name: this.name,
-  surname_1: this.surname_1,
-  surname_2: this.surname_2,
-  alias: this.alias,
-  birth_date: this.birth_date,
-  email: this.email,
-  password: this.password,
-});
+    this.profileForm = this.formBuilder.group({
+      name: this.name,
+      surname_1: this.surname_1,
+      surname_2: this.surname_2,
+      alias: this.alias,
+      birth_date: this.birth_date,
+      email: this.email,
+      password: this.password,
+    });
+  }
 
   async ngOnInit(): Promise<void> {
     let errorResponse: any;
