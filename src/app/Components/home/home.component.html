@@ -1,8 +1,13 @@
 <!-- TODO 3 -->
-<h2>List All Posts</h2>
+<h2>{{ "home.title" | translate }}</h2>
 
-<section
-  *ngFor="let post of posts"
+<div class="filter">
+  <label for="alias-filter">{{ "filter.label" | translate }}</label>
+  <input type="text" id="alias-filter" [(ngModel)]="userAlias" />
+</div>
+
+<ul
+  *ngFor="let post of posts | postFilter : userAlias"
   style="
     border: 3px solid #ccc;
     border-radius: 10px;
@@ -13,7 +18,7 @@
     max-width: 500px;
   "
 >
-  <div
+  <li
     *ngFor="let category of post.categories"
     [ngStyle]="{ 'background-color': category.css_color }"
     style="
@@ -25,15 +30,22 @@
     "
   >
     {{ category.title }}
-  </div>
+  </li>
 
-  <p style="font-weight: bold">Title: {{ post.title }}</p>
-  <p>Likes: {{ post.num_likes }}</p>
-  <p>Dislikes: {{ post.num_dislikes }}</p>
-  <p>Publication date: {{ post.publication_date | formatDate : 3 }}</p>
-  <p>Published by: {{ post.userAlias }}</p>
+  <p style="font-weight: bold">
+    {{ "post.title" | translate }} {{ post.title }}
+  </p>
+  <p>{{ "post.likes" | translate }} {{ post.num_likes }}</p>
+  <p>{{ "post.dislikes" | translate }} {{ post.num_dislikes }}</p>
+  <p>
+    {{ "post.publication_date" | translate }}
+    {{ post.publication_date | formatDate : 3 }}
+  </p>
+  <p>{{ "post.published_by" | translate }} {{ post.userAlias }}</p>
   <div *ngIf="showButtons">
-    <button (click)="like(post.postId)">Like</button>
-    <button (click)="dislike(post.postId)">Dislike</button>
+    <button (click)="like(post.postId)">{{ "button.like" | translate }}</button>
+    <button (click)="dislike(post.postId)">
+      {{ "button.dislike" | translate }}
+    </button>
   </div>
-</section>
+</ul>

@@ -1,17 +1,17 @@
-<h2>Post List</h2>
+<h2>{{ "postList.title" | translate }}</h2>
 
 <!-- TODO 11 -->
-<button (click)="createPost()">ADD</button>
+<button (click)="createPost()">{{ "postList.add" | translate }}</button>
 
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>TITLE</th>
-      <th>DESCRIPTION</th>
-      <th>NUM LIKES</th>
-      <th>NUM DISLIKES</th>
-      <th>ACTIONS</th>
+      <th>{{ "postList.id" | translate }}</th>
+      <th>{{ "postList.titleHeader" | translate }}</th>
+      <th>{{ "postList.description" | translate }}</th>
+      <th>{{ "postList.numLikes" | translate }}</th>
+      <th>{{ "postList.numDislikes" | translate }}</th>
+      <th>{{ "postList.actions" | translate }}</th>
     </tr>
   </thead>
   <tbody>
@@ -22,8 +22,12 @@
       <td>{{ post.num_likes }}</td>
       <td>{{ post.num_dislikes }}</td>
       <td>
-        <button (click)="updatePost(post.postId)">UPDATE</button>
-        <button (click)="deletePost(post.postId)">DELETE</button>
+        <button (click)="updatePost(post.postId)">
+          {{ "postList.update" | translate }}
+        </button>
+        <button (click)="deletePost(post.postId)">
+          {{ "postList.delete" | translate }}
+        </button>
       </td>
     </tr>
   </tbody>

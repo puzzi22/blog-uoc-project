@@ -1,4 +1,26 @@
-<p>header works!</p>
+<!-- LANGUAGE DROPDOWN -->
+<div
+  style="
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    align-items: center;
+  "
+>
+  <p>{{ "header.headerWorks" | translate }}</p>
+  <div class="language-dropdown">
+    <a
+      (click)="languageService.setLanguage('en')"
+      class="{{ languageService.currentLanguage === 'en' ? 'active' : '' }}"
+      >English</a
+    >
+    <a
+      (click)="languageService.setLanguage('es')"
+      class="{{ languageService.currentLanguage === 'es' ? 'active' : '' }}"
+      >Español</a
+    >
+  </div>
+</div>
 
 <!-- NO AUTH REQUIRED -->
 <div
@@ -6,20 +28,41 @@
   style="display: flex; justify-content: space-between; max-width: 500px"
 >
   <div>
-    <button (click)="home()">Home</button>
-    <button (click)="login()">Login</button>
-    <button (click)="register()">Register</button>
+    <button (click)="home()">{{ "header.home" | translate }}</button>
+    <button (click)="login()">{{ "header.login" | translate }}</button>
+    <button (click)="register()">{{ "header.register" | translate }}</button>
   </div>
   <div>
-    <a routerLink="/dashboard">Dashboard</a>
+    <a class="dashboard" routerLink="/dashboard">{{
+      "header.dashboard" | translate
+    }}</a>
   </div>
 </div>
 
 <!-- AUTH REQUIRED -->
 <div *ngIf="showAuthSection">
-  <button (click)="home()">Home</button>
-  <button (click)="adminPosts()">Admin posts</button>
-  <button (click)="adminCategories()">Admin categories</button>
-  <button (click)="profile()">Profile</button>
-  <button (click)="logout()">Logout</button>
+  <button (click)="home()">{{ "header.home" | translate }}</button>
+  <button (click)="adminPosts()">{{ "header.adminPosts" | translate }}</button>
+  <button (click)="adminCategories()">
+    {{ "header.adminCategories" | translate }}
+  </button>
+  <button (click)="profile()">{{ "header.profile" | translate }}</button>
+  <button (click)="logout()">{{ "header.logout" | translate }}</button>
 </div>
+
+<style>
+  .language-dropdown a,
+  .dashboard {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    cursor: pointer;
+
+    font-weight: bold;
+    color: blue;
+  }
+
+  .language-dropdown a.active {
+    color: #333;
+  }
+</style>

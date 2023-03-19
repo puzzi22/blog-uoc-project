@@ -3,10 +3,10 @@
 </div>
 <div>
   <!-- TODO 14 -->
-  <h1>Post form</h1>
+  <h1>{{ "postForm.postForm" | translate }}</h1>
   <form *ngIf="postForm" [formGroup]="postForm" (ngSubmit)="savePost()">
     <div>
-      <label for="title">Title:</label>
+      <label for="title">{{ "postForm.title.label" | translate }}</label>
       <input type="text" [formControl]="title" />
 
       <div *ngIf="title.errors">
@@ -14,17 +14,21 @@
           *ngIf="title.errors && isValidForm != null && !isValidForm"
           [ngClass]="'error'"
         >
-          <div *ngIf="title.errors.required">Title is required</div>
+          <div *ngIf="title.errors.required">
+            {{ "postForm.title.requiredError" | translate }}
+          </div>
 
           <div *ngIf="title.errors.maxlength">
-            Title can be max 55 characters long.
+            {{ "postForm.title.maxLengthError" | translate }}
           </div>
         </div>
       </div>
     </div>
 
     <div>
-      <label for="description">Description:</label>
+      <label for="description">{{
+        "postForm.description.label" | translate
+      }}</label>
       <input type="text" [formControl]="description" />
 
       <div *ngIf="description.errors">
@@ -32,17 +36,21 @@
           *ngIf="description.errors && isValidForm != null && !isValidForm"
           [ngClass]="'error'"
         >
-          <div *ngIf="description.errors.required">Description is required</div>
+          <div *ngIf="description.errors.required">
+            {{ "postForm.description.requiredError" | translate }}
+          </div>
 
           <div *ngIf="description.errors.maxlength">
-            Description can be max 255 characters long.
+            {{ "postForm.description.maxLengthError" | translate }}
           </div>
         </div>
       </div>
     </div>
 
     <div>
-      <label for="publication_date">Publication date:</label>
+      <label for="publication_date">{{
+        "postForm.publication_date.label" | translate
+      }}</label>
       <input type="date" [formControl]="publication_date" />
 
       <div *ngIf="publication_date.errors">
@@ -51,29 +59,14 @@
           [ngClass]="'error'"
         >
           <div *ngIf="publication_date.errors.required">
-            Publication date is required
+            {{ "postForm.publication_date.requiredError" | translate }}
           </div>
         </div>
       </div>
     </div>
 
-    <!-- <div>
-      <label>Category</label>
-      <select
-        [(ngModel)]="postForm.value.selectedCategories"
-        formControlName="selectedCategories"
-        multiple
-      >
-        <option
-          *ngFor="let category of allCategories"
-          [value]="category.categoryId"
-        >
-          {{ category.title }}
-        </option>
-      </select>
-    </div> -->
     <div>
-      <label>Category</label>
+      <label>{{ "postForm.category.label" | translate }}</label>
       <select formControlName="selectedCategories" multiple>
         <option
           *ngFor="let category of allCategories"
@@ -84,6 +77,6 @@
       </select>
     </div>
 
-    <button type="submit">SAVE</button>
+    <button type="submit">{{ "postForm.submit" | translate }}</button>
   </form>
 </div>

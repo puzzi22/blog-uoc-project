@@ -1,0 +1,172 @@
+{
+  "home": {
+    "title": "Listar todos los posts"
+  },
+  "filter": {
+    "label": "Filtrar por alias:"
+  },
+  "post": {
+    "title": "Título:",
+    "likes": "Me gusta:",
+    "dislikes": "No me gusta:",
+    "publication_date": "Fecha de publicación:",
+    "published_by": "Publicado por:"
+  },
+  "button": {
+    "like": "Me gusta",
+    "dislike": "No me gusta"
+  },
+  "header": {
+    "headerWorks": "¡El header funciona!",
+    "home": "Inicio",
+    "login": "Iniciar sesión",
+    "register": "Registrar usuario",
+    "dashboard": "Dashboard",
+    "adminPosts": "Administrar publicaciones",
+    "adminCategories": "Administrar categorías",
+    "profile": "Perfil",
+    "logout": "Cerrar sesión"
+  },
+  "footer": {
+    "footerWorks": "¡El footer funciona!"
+  },
+  "dashboard": {
+    "totalLikes": "Total de me gusta: {{ totalLikes }}",
+    "totalDislikes": "Total de no me gusta: {{ totalDislikes }}",
+    "totalPosts": "Total de publicaciones: {{ totalPosts }}"
+  },
+  "categoryForm": {
+    "h1": "Formulario de categorías",
+    "title": "Título:",
+    "description": "Descripción:",
+    "css_color": "Color CSS:",
+    "required": "es obligatorio",
+    "max_length": "puede tener un máximo de {{max}} caracteres",
+    "save": "GUARDAR",
+    "feedback": "Comentarios de categoría",
+    "title_required": "El título es obligatorio",
+    "title_maxlength": "El título puede tener un máximo de 55 caracteres",
+    "description_required": "La descripción es obligatoria",
+    "description_maxlength": "La descripción puede tener un máximo de 255 caracteres",
+    "css_color_required": "El color CSS es obligatorio",
+    "css_color_maxlength": "El color CSS puede tener un máximo de 7 caracteres",
+    "error": "error"
+  },
+  "categoriesList": {
+    "title": "Lista de Categorías",
+    "addButton": "AÑADIR",
+    "tableHeader": {
+      "id": "ID",
+      "title": "TÍTULO",
+      "description": "DESCRIPCIÓN",
+      "cssColor": "COLOR CSS",
+      "actions": "ACCIONES"
+    },
+    "update": "ACTUALIZAR",
+    "delete": "BORRAR"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "emailLabel": "Correo electrónico",
+    "emailRequiredError": "Se requiere correo electrónico",
+    "emailFormatError": "El correo electrónico no tiene un formato válido",
+    "emailKeywordError": "El correo electrónico info@uoc.edu está reservado para el administrador del sistema",
+    "passwordLabel": "Contraseña",
+    "passwordRequiredError": "Se requiere contraseña",
+    "passwordMinLengthError": "La contraseña debe tener al menos 8 caracteres",
+    "passwordMaxLengthError": "La contraseña debe tener como máximo 16 caracteres",
+    "joinButton": "Entrar"
+  },
+  "postForm": {
+    "postForm": "Enviar formulario",
+    "title": {
+      "label": "Título:",
+      "requiredError": "El título es requerido",
+      "maxLengthError": "El título puede tener como máximo 55 caracteres"
+    },
+    "description": {
+      "label": "Descripción:",
+      "requiredError": "La descripción es requerida",
+      "maxLengthError": "La descripción puede tener como máximo 255 caracteres"
+    },
+    "publication_date": {
+      "label": "Fecha de publicación:",
+      "requiredError": "La fecha de publicación es requerida"
+    },
+    "category": {
+      "label": "Categoría",
+      "placeholder": "Seleccione una categoría"
+    },
+    "submit": "GUARDAR"
+  },
+  "postList": {
+    "title": "Lista de publicaciones",
+    "add": "AÑADIR",
+    "id": "ID",
+    "titleHeader": "TÍTULO",
+    "description": "DESCRIPCIÓN",
+    "numLikes": "NÚM. DE ME GUSTA",
+    "numDislikes": "NÚM. DE NO ME GUSTA",
+    "actions": "ACCIONES",
+    "update": "ACTUALIZAR",
+    "delete": "BORRAR"
+  },
+  "profile": {
+    "profile": "Perfil",
+    "name": "Nombre",
+    "surname1": "Apellido 1",
+    "surname2": "Apellido 2",
+    "alias": "Alias",
+    "birthDate": "Fecha de nacimiento",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "nameRequired": "Se requiere el nombre",
+    "nameMinlength": "El nombre debe tener al menos 5 caracteres",
+    "nameMaxlength": "El nombre puede tener como máximo 25 caracteres",
+    "surname1Required": "Se requiere el apellido 1",
+    "surname1Minlength": "El apellido 1 debe tener al menos 5 caracteres",
+    "surname1Maxlength": "El apellido 1 puede tener como máximo 25 caracteres",
+    "surname2Minlength": "El apellido 2 debe tener al menos 5 caracteres",
+    "surname2Maxlength": "El apellido 2 puede tener como máximo 25 caracteres",
+    "aliasRequired": "Se requiere el alias",
+    "aliasMinlength": "El alias debe tener al menos 5 caracteres",
+    "aliasMaxlength": "El alias puede tener como máximo 25 caracteres",
+    "birthDateRequired": "Se requiere la fecha de nacimiento",
+    "emailRequired": "Se requiere el correo electrónico",
+    "emailPattern": "El correo electrónico no tiene un formato válido",
+    "emailReserved": "El correo electrónico info@uoc.edu está reservado para el administrador del sistema",
+    "passwordRequired": "Se requiere la contraseña",
+    "passwordMinlength": "La contraseña debe tener al menos 8 caracteres",
+    "passwordMaxlength": "La contraseña debe tener como máximo 16 caracteres",
+    "update": "Actualizar"
+  },
+  "register": {
+    "register": "Registrar usuario",
+    "name": "Nombre",
+    "surname1": "Apellido 1",
+    "surname2": "Apellido 2",
+    "alias": "Alias",
+    "birthDate": "Fecha de nacimiento",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "nameRequired": "Se requiere el nombre",
+    "nameMinlength": "El nombre debe tener al menos 5 caracteres",
+    "nameMaxlength": "El nombre puede tener como máximo 25 caracteres",
+    "surname1Required": "Se requiere el apellido 1",
+    "surname1Minlength": "El apellido 1 debe tener al menos 5 caracteres",
+    "surname1Maxlength": "El apellido 1 puede tener como máximo 25 caracteres",
+    "surname2Minlength": "El apellido 2 debe tener al menos 5 caracteres",
+    "surname2Maxlength": "El apellido 2 puede tener como máximo 25 caracteres",
+    "aliasRequired": "Se requiere el alias",
+    "aliasMinlength": "El alias debe tener al menos 5 caracteres",
+    "aliasMaxlength": "El alias puede tener como máximo 25 caracteres",
+    "birthDateRequired": "Se requiere la fecha de nacimiento",
+    "emailRequired": "Se requiere el correo electrónico",
+    "emailPattern": "El correo electrónico no tiene un formato válido",
+    "emailReserved": "El correo electrónico info@uoc.edu está reservado para el administrador del sistema",
+    "passwordRequired": "Se requiere la contraseña",
+    "passwordMinlength": "La contraseña debe tener al menos 8 caracteres",
+    "passwordMaxlength": "La contraseña debe tener como máximo 16 caracteres",
+    "joinNow": "Únirse"
+  }
+}

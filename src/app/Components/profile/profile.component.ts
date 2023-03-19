@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { checkInvalidKeyWord } from 'src/app/Directives/check-invalid-keyword.validator';
 import { UserDTO } from 'src/app/Models/user.dto';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
@@ -36,7 +37,8 @@ export class ProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private sharedService: SharedService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private translate: TranslateService
   ) {
     // TODO 5
     const storedUser = this.localStorageService.get('user');

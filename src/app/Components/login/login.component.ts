@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { checkInvalidKeyWord } from 'src/app/Directives/check-invalid-keyword.validator';
 import { AuthDTO } from 'src/app/Models/auth.dto';
 import { HeaderMenus } from 'src/app/Models/header-menus.dto';
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
     private sharedService: SharedService,
     private headerMenusService: HeaderMenusService,
     private localStorageService: LocalStorageService,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService
   ) {
     // TODO 20
     this.formSubmitted = false;

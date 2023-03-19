@@ -1,0 +1,172 @@
+{
+  "home": {
+    "title": "List All Posts"
+  },
+  "filter": {
+    "label": "Filter by alias:"
+  },
+  "post": {
+    "title": "Title:",
+    "likes": "Likes:",
+    "dislikes": "Dislikes:",
+    "publication_date": "Publication date:",
+    "published_by": "Published by:"
+  },
+  "button": {
+    "like": "Like",
+    "dislike": "Dislike"
+  },
+  "header": {
+    "headerWorks": "The header works!",
+    "home": "Home",
+    "login": "Login",
+    "register": "Register",
+    "dashboard": "Dashboard",
+    "adminPosts": "Admin Posts",
+    "adminCategories": "Admin Categories",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "footer": {
+    "footerWorks": "The footer works!"
+  },
+  "dashboard": {
+    "totalLikes": "Total likes: {{ totalLikes }}",
+    "totalDislikes": "Total dislikes: {{ totalDislikes }}",
+    "totalPosts": "Total posts: {{ totalPosts }}"
+  },
+  "categoryForm": {
+    "h1": "Category Form",
+    "title": "Title:",
+    "description": "Description:",
+    "css_color": "CSS Color:",
+    "required": "is required",
+    "max_length": "can be max {{max}} characters long",
+    "save": "SAVE",
+    "feedback": "Category Feedback",
+    "title_required": "Title is required",
+    "title_maxlength": "Title 55 characters long",
+    "description_required": "Description is required",
+    "description_maxlength": "Description 255 characters long",
+    "css_color_required": "CSS color is required",
+    "css_color_maxlength": "CSS color 7 characters long",
+    "error": "error"
+  },
+  "categoriesList": {
+    "title": "Categories List",
+    "addButton": "ADD",
+    "tableHeader": {
+      "id": "ID",
+      "title": "TITLE",
+      "description": "DESCRIPTION",
+      "cssColor": "CSS COLOR",
+      "actions": "ACTIONS"
+    },
+    "update": "UPDATE",
+    "delete": "DELETE"
+  },
+  "login": {
+    "title": "Login",
+    "emailLabel": "Email",
+    "emailRequiredError": "Email is required",
+    "emailFormatError": "Email not a valid format",
+    "emailKeywordError": "Email info@uoc.edu is reserved for the system admin",
+    "passwordLabel": "Password",
+    "passwordRequiredError": "Password is required",
+    "passwordMinLengthError": "Password must be at least 8 characters long",
+    "passwordMaxLengthError": "Password must be at most 16 characters long",
+    "joinButton": "Join now"
+  },
+  "postForm": {
+    "postForm": "Post form",
+    "title": {
+      "label": "Title:",
+      "requiredError": "Title is required",
+      "maxLengthError": "Title can be max 55 characters long"
+    },
+    "description": {
+      "label": "Description:",
+      "requiredError": "Description is required",
+      "maxLengthError": "Description can be max 255 characters long"
+    },
+    "publication_date": {
+      "label": "Publication date:",
+      "requiredError": "Publication date is required"
+    },
+    "category": {
+      "label": "Category",
+      "placeholder": "Select a category"
+    },
+    "submit": "SAVE"
+  },
+  "postList": {
+    "title": "Post List",
+    "add": "ADD",
+    "id": "ID",
+    "titleHeader": "TITLE",
+    "description": "DESCRIPTION",
+    "numLikes": "NUM LIKES",
+    "numDislikes": "NUM DISLIKES",
+    "actions": "ACTIONS",
+    "update": "UPDATE",
+    "delete": "DELETE"
+  },
+  "profile": {
+    "profile": "Profile",
+    "name": "Name",
+    "surname1": "Surname 1",
+    "surname2": "Surname 2",
+    "alias": "Alias",
+    "birthDate": "Birth date",
+    "email": "Email",
+    "password": "Password",
+    "nameRequired": "Name is required",
+    "nameMinlength": "Name must be at least 5 characters long",
+    "nameMaxlength": "Name can be max 25 characters long",
+    "surname1Required": "Surname 1 is required",
+    "surname1Minlength": "Surname 1 must be at least 5 characters long",
+    "surname1Maxlength": "Surname 1 can be max 25 characters long",
+    "surname2Minlength": "Surname 2 must be at least 5 characters long",
+    "surname2Maxlength": "Surname 2 can be max 25 characters long",
+    "aliasRequired": "Alias is required",
+    "aliasMinlength": "Alias must be at least 5 characters long",
+    "aliasMaxlength": "Alias can be max 25 characters long",
+    "birthDateRequired": "Birth date is required",
+    "emailRequired": "Email is required",
+    "emailPattern": "Email not a valid format",
+    "emailReserved": "Email info@uoc.edu is reserved for the system admin",
+    "passwordRequired": "Password is required",
+    "passwordMinlength": "Password must be at least 8 characters long",
+    "passwordMaxlength": "Password must be at most 16 characters long",
+    "update": "Update"
+  },
+  "register": {
+    "register": "Register",
+    "name": "Name",
+    "surname1": "Surname 1",
+    "surname2": "Surname 2",
+    "alias": "Alias",
+    "birthDate": "Birth date",
+    "email": "Email",
+    "password": "Password",
+    "nameRequired": "Name is required",
+    "nameMinlength": "Name must be at least 5 characters long",
+    "nameMaxlength": "Name can be max 25 characters long",
+    "surname1Required": "Surname 1 is required",
+    "surname1Minlength": "Surname 1 must be at least 5 characters long",
+    "surname1Maxlength": "Surname 1 can be max 25 characters long",
+    "surname2Minlength": "Surname 2 must be at least 5 characters long",
+    "surname2Maxlength": "Surname 2 can be max 25 characters long",
+    "aliasRequired": "Alias is required",
+    "aliasMinlength": "Alias must be at least 5 characters long",
+    "aliasMaxlength": "Alias can be max 25 characters long",
+    "birthDateRequired": "Birth date is required",
+    "emailRequired": "Email is required",
+    "emailPattern": "Email not a valid format",
+    "emailReserved": "Email info@uoc.edu is reserved for the system admin",
+    "passwordRequired": "Password is required",
+    "passwordMinlength": "Password must be at least 8 characters long",
+    "passwordMaxlength": "Password must be at most 16 characters long",
+    "joinNow": "Join now"
+  }
+}

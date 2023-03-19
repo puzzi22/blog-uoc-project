@@ -2,14 +2,14 @@
   <p id="categoryFeedback"></p>
 </div>
 <div>
-  <h1>Category form</h1>
+  <h1>{{ "categoryForm.h1" | translate }}</h1>
   <form
     *ngIf="categoryForm"
     [formGroup]="categoryForm"
     (ngSubmit)="saveCategory()"
   >
     <div>
-      <label for="title">Title:</label>
+      <label for="title">{{ "categoryForm.title" | translate }}</label>
       <input type="text" [formControl]="title" />
 
       <div *ngIf="title.errors">
@@ -17,17 +17,21 @@
           *ngIf="title.errors && isValidForm != null && !isValidForm"
           [ngClass]="'error'"
         >
-          <div *ngIf="title.errors.required">Title is required</div>
+          <div *ngIf="title.errors.required">
+            {{ "categoryForm.title_required" | translate }}
+          </div>
 
           <div *ngIf="title.errors.maxlength">
-            Title can be max 55 characters long.
+            {{ "categoryForm.title_maxlength" | translate }}
           </div>
         </div>
       </div>
     </div>
 
     <div>
-      <label for="description">Description:</label>
+      <label for="description">{{
+        "categoryForm.description" | translate
+      }}</label>
       <input type="text" [formControl]="description" />
 
       <div *ngIf="description.errors">
@@ -35,17 +39,21 @@
           *ngIf="description.errors && isValidForm != null && !isValidForm"
           [ngClass]="'error'"
         >
-          <div *ngIf="description.errors.required">Description is required</div>
+          <div *ngIf="description.errors.required">
+            {{ "categoryForm.description_required" | translate }}
+          </div>
 
           <div *ngIf="description.errors.maxlength">
-            Description can be max 255 characters long.
+            {{ "categoryForm.description_maxlength" | translate }}
           </div>
         </div>
       </div>
     </div>
 
     <div>
-      <label for="description">Css color:</label>
+      <label for="description">{{
+        "categoryForm.css_color" | translate
+      }}</label>
       <input type="text" [formControl]="css_color" />
 
       <div *ngIf="css_color.errors">
@@ -53,15 +61,17 @@
           *ngIf="css_color.errors && isValidForm != null && !isValidForm"
           [ngClass]="'error'"
         >
-          <div *ngIf="css_color.errors.required">Css color is required</div>
+          <div *ngIf="css_color.errors.required">
+            {{ "categoryForm.css_color_required" | translate }}
+          </div>
 
           <div *ngIf="css_color.errors.maxlength">
-            Css color can be max 7 characters long.
+            {{ "categoryForm.css_color_maxlength" | translate }}
           </div>
         </div>
       </div>
     </div>
 
-    <button type="submit">SAVE</button>
+    <button type="submit">{{ "categoryForm.save" | translate }}</button>
   </form>
 </div>

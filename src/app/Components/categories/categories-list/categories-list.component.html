@@ -1,14 +1,16 @@
-<h2>Categories List</h2>
-<button (click)="createCategory()">ADD</button>
+<h2>{{ "categoriesList.title" | translate }}</h2>
+<button (click)="createCategory()">
+  {{ "categoriesList.addButton" | translate }}
+</button>
 
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>TITLE</th>
-      <th>DESCRIPTION</th>
-      <th>CSS COLOR</th>
-      <th>ACTIONS</th>
+      <th>{{ "categoriesList.tableHeader.id" | translate }}</th>
+      <th>{{ "categoriesList.tableHeader.title" | translate }}</th>
+      <th>{{ "categoriesList.tableHeader.description" | translate }}</th>
+      <th>{{ "categoriesList.tableHeader.cssColor" | translate }}</th>
+      <th>{{ "categoriesList.tableHeader.actions" | translate }}</th>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +20,12 @@
       <td>{{ category.description }}</td>
       <td>{{ category.css_color }}</td>
       <td>
-        <button (click)="updateCategory(category.categoryId)">UPDATE</button>
-        <button (click)="deleteCategory(category.categoryId)">DELETE</button>
+        <button (click)="updateCategory(category.categoryId)">
+          {{ "categoriesList.update" | translate }}
+        </button>
+        <button (click)="deleteCategory(category.categoryId)">
+          {{ "categoriesList.delete" | translate }}
+        </button>
       </td>
     </tr>
   </tbody>

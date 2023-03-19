@@ -1,3 +1,5 @@
-<p>Total likes: {{ totalLikes }}</p>
-<p>Total dislikes: {{ totalDislikes }}</p>
-<p>Total posts: {{ totalPosts }}</p>
+<p>{{ "dashboard.totalLikes" | translate : { totalLikes: totalLikes } }}</p>
+<p>
+  {{ "dashboard.totalDislikes" | translate : { totalDislikes: totalDislikes } }}
+</p>
+<p>{{ "dashboard.totalPosts" | translate : { totalPosts: totalPosts } }}</p>

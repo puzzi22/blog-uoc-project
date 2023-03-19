@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { checkInvalidKeyWord } from 'src/app/Directives/check-invalid-keyword.validator';
 import { HeaderMenus } from 'src/app/Models/header-menus.dto';
 import { UserDTO } from 'src/app/Models/user.dto';
@@ -39,7 +40,8 @@ export class RegisterComponent implements OnInit {
     private userService: UserService,
     private sharedService: SharedService,
     private headerMenusService: HeaderMenusService,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService
   ) {
     // TODO 17
     this.registerUser = new UserDTO('', '', '', '', new Date(), '', '');

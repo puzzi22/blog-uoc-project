@@ -2,36 +2,42 @@
   <p id="loginFeedback"></p>
 </div>
 <div>
-  <h1>Login</h1>
+  <h1>{{ "login.title" | translate }}</h1>
 
   <!-- TODO 21 -->
   <form [formGroup]="loginForm" (ngSubmit)="login(); formSubmitted = true">
     <div>
-      <label for="email">Email: </label>
+      <label for="email">{{ "login.emailLabel" | translate }} </label>
       <input type="email" [formControl]="email" />
       <div *ngIf="formSubmitted && email.errors" [ngClass]="'error'">
-        <div *ngIf="email.errors.required">Email is required</div>
-        <div *ngIf="email.errors.pattern">Email not a valid format.</div>
-        <span *ngIf="email.errors.invalidKeyWord"
-          >Email info@uoc.edu is reservated for the system admin.</span
-        >
+        <div *ngIf="email.errors.required">
+          {{ "login.emailRequiredError" | translate }}
+        </div>
+        <div *ngIf="email.errors.pattern">
+          {{ "login.emailFormatError" | translate }}
+        </div>
+        <span *ngIf="email.errors.invalidKeyWord">{{
+          "login.emailKeywordError" | translate
+        }}</span>
       </div>
     </div>
 
     <div>
-      <label for="password">Password: </label>
+      <label>{{ "login.passwordLabel" | translate }} </label>
       <input type="password" [formControl]="password" />
       <div *ngIf="formSubmitted && password.errors" [ngClass]="'error'">
-        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.required">
+          {{ "login.passwordRequiredError" | translate }}
+        </div>
         <div *ngIf="password.errors.minlength">
-          Password must be at least 8 characters long.
+          {{ "login.passwordMinLengthError" | translate }}
         </div>
         <div *ngIf="password.errors.maxlength">
-          Password must be at most 16 characters long.
+          {{ "login.passwordMaxLengthError" | translate }}
         </div>
       </div>
     </div>
 
-    <button type="submit">Join now</button>
+    <button type="submit">{{ "login.joinButton" | translate }}</button>
   </form>
 </div>

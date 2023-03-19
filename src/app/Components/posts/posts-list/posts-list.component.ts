@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { PostDTO } from 'src/app/Models/post.dto';
 import { LocalStorageService } from 'src/app/Services/local-storage.service';
 import { PostService } from 'src/app/Services/post.service';
@@ -17,7 +18,8 @@ export class PostsListComponent {
     private postService: PostService,
     private router: Router,
     private localStorageService: LocalStorageService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private translate: TranslateService
   ) {
     this.loadPosts();
   }

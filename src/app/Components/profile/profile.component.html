@@ -2,115 +2,129 @@
   <p id="profileFeedback"></p>
 </div>
 <div>
-  <h1>Profile</h1>
+  <h1>{{ "profile.profile" | translate }}</h1>
 
   <!-- TODO 6 -->
   <form [formGroup]="profileForm" (ngSubmit)="updateUser()">
     <div>
-      <label for="name">Name: </label>
+      <label for="name">{{ "profile.name" | translate }} </label>
       <input type="text" [formControl]="name" />
       <div
         *ngIf="name.errors && isValidForm != null && !isValidForm"
         [ngClass]="'error'"
       >
-        <div *ngIf="name.errors.required">Name is required</div>
+        <div *ngIf="name.errors.required">
+          {{ "profile.nameRequired" | translate }}
+        </div>
         <div *ngIf="name.errors.minlength">
-          Name must be at least 5 characters long.
+          {{ "profile.nameMinlength" | translate }}
         </div>
         <div *ngIf="name.errors.maxlength">
-          Name can be max 25 characters long.
+          {{ "profile.nameMaxlength" | translate }}
         </div>
       </div>
     </div>
     <div>
-      <label for="surname1">Surname1: </label>
+      <label for="surname1">{{ "profile.surname1" | translate }} </label>
       <input type="text" [formControl]="surname_1" />
       <div
         *ngIf="surname_1.errors && isValidForm != null && !isValidForm"
         [ngClass]="'error'"
       >
-        <div *ngIf="surname_1.errors.required">Surname1 is required</div>
+        <div *ngIf="surname_1.errors.required">
+          {{ "profile.surname1Required" | translate }}
+        </div>
         <div *ngIf="surname_1.errors.minlength">
-          Surname1 must be at least 5 characters long.
+          {{ "profile.surname1Minlength" | translate }}
         </div>
         <div *ngIf="surname_1.errors.maxlength">
-          Surname1 can be max 25 characters long.
+          S{{ "profile.surname1Maxlength" | translate }}
         </div>
       </div>
     </div>
     <div>
-      <label for="surname2">Surname2: </label>
+      <label for="surname2">{{ "profile.surname2" | translate }} </label>
       <input type="text" [formControl]="surname_2" />
       <div
         *ngIf="surname_2.errors && isValidForm != null && !isValidForm"
         [ngClass]="'error'"
       >
         <div *ngIf="surname_2.errors.minlength">
-          Surname2 must be at least 5 characters long.
+          {{ "profile.surname2Minlength" | translate }}
         </div>
         <div *ngIf="surname_2.errors.maxlength">
-          Surname2 can be max 25 characters long.
+          {{ "profile.surname2Maxlength" | translate }}
         </div>
       </div>
     </div>
     <div>
-      <label for="alias">Alias: </label>
+      <label for="alias">{{ "profile.alias" | translate }} </label>
       <input type="text" [formControl]="alias" />
       <div
         *ngIf="alias.errors && isValidForm != null && !isValidForm"
         [ngClass]="'error'"
       >
-        <div *ngIf="alias.errors.required">Alias is required</div>
+        <div *ngIf="alias.errors.required">
+          {{ "profile.aliasRequired" | translate }}
+        </div>
         <div *ngIf="alias.errors.minlength">
-          Alias must be at least 5 characters long.
+          {{ "profile.aliasMinlength" | translate }}
         </div>
         <div *ngIf="alias.errors.maxlength">
-          Alias can be max 25 characters long.
+          {{ "profile.aliasMaxlength" | translate }}
         </div>
       </div>
     </div>
     <div>
-      <label for="birthDate">Birth date: </label>
+      <label for="birthDate">{{ "profile.birthDate" | translate }} </label>
       <input type="date" [formControl]="birth_date" />
       <div
         *ngIf="birth_date.errors && isValidForm != null && !isValidForm"
         [ngClass]="'error'"
       >
-        <div *ngIf="birth_date.errors.required">Birth date is required</div>
+        <div *ngIf="birth_date.errors.required">
+          {{ "profile.birthDateRequired" | translate }}
+        </div>
       </div>
     </div>
     <div>
-      <label for="email">Email: </label>
+      <label for="email">{{ "profile.email" | translate }} </label>
       <input type="email" [formControl]="email" />
       <div
         *ngIf="email.errors && isValidForm != null && !isValidForm"
         [ngClass]="'error'"
       >
-        <div *ngIf="email.errors.required">Email is required</div>
-        <div *ngIf="email.errors.pattern">Email not a valid format.</div>
-        <span *ngIf="email.errors.invalidKeyWord"
-          >Email info@uoc.edu is reservated for the system admin.</span
-        >
+        <div *ngIf="email.errors.required">
+          {{ "profile.emailRequired" | translate }}
+        </div>
+        <div *ngIf="email.errors.pattern">
+          {{ "profile.emailPattern" | translate }}
+        </div>
+        <span *ngIf="email.errors.invalidKeyWord">{{
+          "profile.emailReserved" | translate
+        }}</span>
       </div>
     </div>
 
     <div>
-      <label for="password">Password: </label>
+      <label for="password">{{ "profile.password" | translate }} </label>
       <input type="password" [formControl]="password" />
       <div
         *ngIf="password.errors && isValidForm != null && !isValidForm"
         [ngClass]="'error'"
       >
-        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.required">
+          {{ "profile.passwordRequired" | translate }}
+        </div>
         <div *ngIf="password.errors.minlength">
-          Password must be at least 8 characters long.
+          {{ "profile.passwordMinlength" | translate }}
         </div>
         <div *ngIf="password.errors.maxlength">
-          Password must be at most 16 characters long.
+          {{ "profile.passwordMaxlength" | translate }}
         </div>
       </div>
     </div>
 
-    <button type="submit">Update</button>
+    <button type="submit">{{ "profile.update" | translate }}</button>
   </form>
 </div>

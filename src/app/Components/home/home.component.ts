@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 // import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { HeaderMenus } from 'src/app/Models/header-menus.dto';
 import { PostDTO } from 'src/app/Models/post.dto';
 import { HeaderMenusService } from 'src/app/Services/header-menus.service';
@@ -15,12 +16,15 @@ import { SharedService } from 'src/app/Services/shared.service';
 export class HomeComponent {
   posts!: PostDTO[];
   showButtons: boolean;
+  userAlias: string = '';
+
   constructor(
     private postService: PostService,
     private localStorageService: LocalStorageService,
     private sharedService: SharedService,
     // private router: Router,
-    private headerMenusService: HeaderMenusService
+    private headerMenusService: HeaderMenusService,
+    private translate: TranslateService
   ) {
     this.showButtons = false;
     this.loadPosts();

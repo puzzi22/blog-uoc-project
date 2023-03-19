@@ -1,7 +1,13 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoriesListComponent } from './Components/categories/categories-list/categories-list.component';
@@ -16,6 +22,7 @@ import { PostsListComponent } from './Components/posts/posts-list/posts-list.com
 import { ProfileComponent } from './Components/profile/profile.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { FormatDatePipe } from './Pipes/format-date.pipe';
+import { PostFilterPipe } from './Pipes/post-filter';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
 
 @NgModule({
@@ -33,12 +40,23 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
     PostFormComponent,
     FormatDatePipe,
     DashboardComponent,
+    PostFilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => {
+          return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+        },
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     {
