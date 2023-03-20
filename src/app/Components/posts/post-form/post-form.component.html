@@ -71,6 +71,11 @@
         <option
           *ngFor="let category of allCategories"
           [value]="category.categoryId"
+          [selected]="
+            postForm
+              .get('selectedCategories')
+              ?.value.includes(category.categoryId)
+          "
         >
           {{ category.title }}
         </option>

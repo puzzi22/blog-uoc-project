@@ -18,6 +18,8 @@ export class HomeComponent {
   showButtons: boolean;
   userAlias: string = '';
 
+  errorResponse: any;
+
   constructor(
     private postService: PostService,
     private localStorageService: LocalStorageService,
@@ -39,40 +41,37 @@ export class HomeComponent {
       }
     );
   }
+
   private async loadPosts(): Promise<void> {
-    // TODO 2
-    let errorResponse: any;
     const userId = this.localStorageService.get('user_id');
     if (userId) {
       this.showButtons = true;
       try {
         this.posts = await this.postService.getPosts();
       } catch (error: any) {
-        errorResponse = error.error;
-        this.sharedService.errorLog(errorResponse);
+        this.errorResponse = error.error;
+        this.sharedService.errorLog(this.errorResponse);
       }
     }
   }
 
   async like(postId: string): Promise<void> {
-    let errorResponse: any;
     try {
       await this.postService.likePost(postId);
       this.loadPosts();
     } catch (error: any) {
-      errorResponse = error.error;
-      this.sharedService.errorLog(errorResponse);
+      this.errorResponse = error.error;
+      this.sharedService.errorLog(this.errorResponse);
     }
   }
 
   async dislike(postId: string): Promise<void> {
-    let errorResponse: any;
     try {
       await this.postService.dislikePost(postId);
       this.loadPosts();
     } catch (error: any) {
-      errorResponse = error.error;
-      this.sharedService.errorLog(errorResponse);
+      this.errorResponse = error.error;
+      this.sharedService.errorLog(this.errorResponse);
     }
   }
 }

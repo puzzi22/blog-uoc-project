@@ -91,7 +91,33 @@ export class PostFormComponent implements OnInit {
   }
   // TODO 13
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadPostData();
+  }
+
+  private async loadPostData(): Promise<void> {
+    const postId = this.activatedRoute.snapshot.paramMap.get('id');
+    if (postId) {
+      try {
+        const post = await this.postService.getPostById(postId);
+        const categoryIds = post.categories.map(
+          (category) => category.categoryId
+        );
+        this.postForm.patchValue({
+          title: post.title,
+          description: post.description,
+          publication_date: formatDate(
+            post.publication_date,
+            'yyyy-MM-dd',
+            'en'
+          ),
+          selectedCategories: categoryIds,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   private async loadCategories(): Promise<void> {
     let errorResponse: any;
